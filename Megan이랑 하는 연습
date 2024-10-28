@@ -45,45 +45,45 @@ def show_results():
 def main():
     print("간단한 계산기")
     print("연산을 선택하세요: ")
-    print("1. 더하기")
-    print("2. 빼기")
-    print("3. 곱하기")
-    print("4. 나누기")
-    print("5. 결과 저장")
-    print("6. 저장된 결과 보기")
+    print("0. 더하기")
+    print("1. 빼기")
+    print("2. 곱하기")
+    print("3. 나누기")
+    print("4. 결과 저장")
+    print("5. 저장된 결과 보기")
 
     while True:
-        choice = input("연산 번호(1/2/3/4/5/6)를 입력하세요: ")
+        choice = input("연산 번호(0/1/2/3/4/5)를 입력하세요: ")
         
         # 사용자 입력 처리
-        if choice in ['1', '2', '3', '4']:
+        if choice in ['0', '1', '2', '3']:
             num1 = float(input("첫 번째 숫자를 입력하세요: "))
             num2 = float(input("두 번째 숫자를 입력하세요: "))
             
-            if choice == '1':
+            if choice == '0':
                 result = add(num1, num2)
                 print(f"{num1} + {num2} = {result}")
-            elif choice == '2':
+            elif choice == '1':
                 result = subtract(num1, num2)
                 print(f"{num1} - {num2} = {result}")
-            elif choice == '3':
+            elif choice == '2':
                 result = multiply(num1, num2)
                 print(f"{num1} * {num2} = {result}")
-            elif choice == '4':
+            elif choice == '3':
                 try:
                     result = divide(num1, num2)
                     print(f"{num1} / {num2} = {result}")
                 except ValueError as e:
                     print(e)
         
-        elif choice == '5':
+        elif choice == '4':
             name = input("저장할 결과 이름을 입력하세요: ")
             if 'result' in locals():
                 save_result(name, result)
             else:
                 print("먼저 계산을 수행한 후 결과를 저장하세요.")
         
-        elif choice == '6':
+        elif choice == '5':
             show_results()
         
         else:
